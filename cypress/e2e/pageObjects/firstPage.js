@@ -7,18 +7,17 @@ class FirstPage extends BasePage {
     }
 
     static get dismissPopup(){
-        return cy.get('.close-dialog')
+        return cy.get('.close-dialog');
     }
 
     static get acceptCookies(){
-        return cy.get('.cc-dismiss')
+        return cy.get('.cc-dismiss');
     }
 
     static get navigLogInButton(){
-        return cy.get('#navbarLoginButton')
+        return cy.get('#navbarLoginButton');
     }
 
-    
 
     
 

@@ -54,6 +54,13 @@ class SearchPage extends BasePage {
         return cy.get('[routerlink="/basket"]')
     }
 
+    static get ordersAndPayments(){
+        return cy.get("[role='menuitem'][aria-label='Show Orders and Payment Menu']")
+    }
+
+    static get savedAddreses(){
+        return cy.get("[role='menuitem'][aria-label='Go to saved address page']")
+    }
 
 }
 

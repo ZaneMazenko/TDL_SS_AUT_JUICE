@@ -1,12 +1,14 @@
 
 import BasePage from "../pageObjects/BasePage";
 import BasketPage from "../pageObjects/basketPage";
+import CreateAddressPage from "../pageObjects/createAddressPage";
 import DeliveryMethodPage from "../pageObjects/deliveryMethodPage";
 import FirstPage from "../pageObjects/firstPage"
 import LoginPage from "../pageObjects/loginPage";
 import OrderCompletionPage from "../pageObjects/orderCompletionPage";
 import PaymentOptionsPage from "../pageObjects/paymentOptionsPage";
 import RegisterPage from "../pageObjects/registerPage";
+import SavedAddressesPage from "../pageObjects/savedAddressesPage";
 import SearchPage from "../pageObjects/searchPage";
 import SelectAddressPage from "../pageObjects/selectAddressPage";
 
@@ -218,18 +220,38 @@ describe("examples", () => {
       OrderCompletionPage.confirmMsg.should('have.text',"Thank you for your purchase!")
     })
 
-    //Scenario - Add address
-    it.only('Add address')
-  // Click on Account
-  // Click on Orders & Payment
-  // Click on My saved addresses
-  // Create page object - SavedAddressesPage
-  // Click on Add New Address
-  // Create page object - CreateAddressPage
-  // Fill in the necessary information
-  // Click Submit button
-  // Validate that previously added address is visible
-
+    //Scenario 9 - Add address
+    it.only('Add address', ()=> {
+      // Click on Account
+      BasePage.accountButton.click();
+      // Click on Orders & Payment
+      SearchPage.ordersAndPayments.click();
+    // Click on My saved addresses
+      SearchPage.savedAddreses.click();
+    // Create page object - SavedAddressesPage
+    // Click on Add New Address
+      SavedAddressesPage.addAddress.click();
+    // Create page object - CreateAddressPage
+    // Fill in the necessary information
+      CreateAddressPage.countryFill.click();
+      CreateAddressPage.countryFill.type('Latvia');
+      CreateAddressPage.nameFill.click();
+      CreateAddressPage.nameFill.type('NameName');
+      CreateAddressPage.phoneFill.click();
+      CreateAddressPage.phoneFill.type(28475729);
+      CreateAddressPage.zipCodeFill.click();
+      CreateAddressPage.zipCodeFill.type('LV1010');
+      CreateAddressPage.addressFill.click();
+      CreateAddressPage.addressFill.type('This is Address');
+      CreateAddressPage.cityFill.click();
+      CreateAddressPage.cityFill.type("Riga baby");
+    // Click Submit button
+      BasePage.submitBtn.click();
+    // Validate that previously added address is visible
+      SavedAddressesPage.checkAddress.contains('NameName');
+    })
+  
+  
 
     
 
