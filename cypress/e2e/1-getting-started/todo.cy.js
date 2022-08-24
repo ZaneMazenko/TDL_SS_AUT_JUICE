@@ -108,7 +108,7 @@ describe("examples", () => {
     });
 
     //Scenario 4 - Search 500ml and validate Lemon, while having multiple cards
-    it.only('Search 500ml and validate Lemon', () => {
+    it('Search 500ml and validate Lemon', () => {
       // Click on search icon
       SearchPage.searchIcon.click();
        // Search for 500ml
@@ -119,7 +119,42 @@ describe("examples", () => {
       SearchPage.description.should('contain.text','Sour but full of vitamins');
     });
 
-    
+    // Scenario 5 - Search 500ml and validate cards
+    it.only('Search 500ml and validate cards', () =>{
+      // Click on search icon
+      SearchPage.searchIcon.click();
+      // Search for 500ml
+      SearchPage.searchForm.type('500ml{enter}');
+      // Select a product card - Eggfruit Juice (500ml)
+      SearchPage.gridList.contains('Eggfruit Juice (500ml)').click();
+      // Validate that the card (should) contains "Now with even more exotic flavour."
+      SearchPage.description.should('contain.text','Now with even more exotic flavour');
+      // Close the card
+      SearchPage.closeBtn.click();
+      // Select a product card - Lemon Juice (500ml)
+      SearchPage.gridList.contains('Lemon Juice (500ml)').click();
+      SearchPage.description.should('contain.text','Sour but full of vitamins');
+       // Close the card
+      SearchPage.closeBtn.click();
+      // Select a product card - Strawberry Juice (500ml)
+      SearchPage.gridList.contains('Strawberry Juice (500ml)').click();
+       // Validate that the card (should) contains "Sweet & tasty!"
+      SearchPage.description.should('contain.text','Sweet & tasty!');
+    })
+  
+  
+  
+  
+  
+  
+  
+ 
+ 
+  
+ 
+
+
+
 
   
   
