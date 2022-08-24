@@ -21,6 +21,10 @@ class BasePage {
         const email = `email_${randomNum}@email.com`
         return email;
     }
+
+    static get submitBtn(){
+        return cy.get('#submitButton')
+    }
 }
 
 

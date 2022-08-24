@@ -120,7 +120,7 @@ describe("examples", () => {
     });
 
     // Scenario 5 - Search 500ml and validate cards
-    it.only('Search 500ml and validate cards', () =>{
+    it('Search 500ml and validate cards', () =>{
       // Click on search icon
       SearchPage.searchIcon.click();
       // Search for 500ml
@@ -140,7 +140,31 @@ describe("examples", () => {
       SearchPage.gridList.contains('Strawberry Juice (500ml)').click();
        // Validate that the card (should) contains "Sweet & tasty!"
       SearchPage.description.should('contain.text','Sweet & tasty!');
-    })
+    });
+
+    // Scenario 6 - Add a review
+    it.only('Add a review', () => {
+    // Click on search icon
+    SearchPage.searchIcon.click();
+    // Search for Raspberry
+    SearchPage.searchForm.type('Raspberry{enter}');
+    // Select a product card - Raspberry Juice (1000ml)
+    SearchPage.gridList.contains('Raspberry Juice (1000ml)').click();
+    // Type in review - "Tastes like metal"
+    SearchPage.reviewForm.click()
+    SearchPage.reviewForm.type('Tastes like metal')
+    // Click Submit
+    BasePage.submitBtn.click();
+    // Click expand reviews button/icon (wait for reviews to appear)
+    SearchPage.reviewListBtn.click();
+    // Validate review -  "Tastes like metal"
+    SearchPage.reviewList.contains('Tastes like metal')
+    });
+
+    
+  
+
+
   
   
   

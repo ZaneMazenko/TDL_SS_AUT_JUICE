@@ -25,6 +25,18 @@ class SearchPage extends BasePage {
     static get closeBtn(){
         return cy.get('.close-dialog');
     }
+
+    static get reviewForm(){
+        return cy.get('#mat-input-3');
+    }
+
+    static get reviewListBtn(){
+        return cy.get('.mat-expansion-panel-header-title');
+    }
+
+    static get reviewList(){
+        return cy.get(':nth-child(1) > [fxlayout="row"]');
+    }
 }
 
 export default SearchPage
