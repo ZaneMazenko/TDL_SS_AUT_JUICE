@@ -96,7 +96,7 @@ describe("examples", () => {
     });
 
     // Scenario 3 - Search and validate Lemon
-    it.only('search and validate Lemon', ()=>{
+    it('search and validate Lemon', ()=>{
     // Click on search icon
     SearchPage.searchIcon.click();
     // Search for Lemon
@@ -107,8 +107,25 @@ describe("examples", () => {
     SearchPage.description.should('contain.text','Sour but full of vitamins')
     });
 
+    //Scenario 4 - Search 500ml and validate Lemon, while having multiple cards
+    it.only('Search 500ml and validate Lemon', () => {
+      // Click on search icon
+      SearchPage.searchIcon.click();
+       // Search for 500ml
+      SearchPage.searchForm.type('500ml{enter}');
+       // Select a product card - Lemon Juice (500ml)
+      SearchPage.gridList.should('contain.text','Lemon Juice (500ml)')
+      SearchPage.gridList.contains('Lemon Juice (500ml)').click();
+      SearchPage.description.should('contain.text','Sour but full of vitamins');
+    });
 
-    it.only()
+    
+
+  
+  
+ 
+ 
+  
 
 
 
