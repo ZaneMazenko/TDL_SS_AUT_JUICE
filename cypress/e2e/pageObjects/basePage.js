@@ -25,6 +25,15 @@ class BasePage {
     static get submitBtn(){
         return cy.get('#submitButton')
     }
+
+    static get nxtBtn(){
+        return cy.get('.nextButton')
+    }  
+
+    static get checkoutBtn(){
+        return cy.get('#checkoutButton');
+    }
+    
 }
 
 

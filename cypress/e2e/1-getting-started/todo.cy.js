@@ -1,9 +1,14 @@
 
 import BasePage from "../pageObjects/BasePage";
+import BasketPage from "../pageObjects/basketPage";
+import DeliveryMethodPage from "../pageObjects/deliveryMethodPage";
 import FirstPage from "../pageObjects/firstPage"
 import LoginPage from "../pageObjects/loginPage";
+import OrderCompletionPage from "../pageObjects/orderCompletionPage";
+import PaymentOptionsPage from "../pageObjects/paymentOptionsPage";
 import RegisterPage from "../pageObjects/registerPage";
 import SearchPage from "../pageObjects/searchPage";
+import SelectAddressPage from "../pageObjects/selectAddressPage";
 
 describe("examples", () => {
   context('Juice shop Login and Register', () => {
@@ -162,7 +167,7 @@ describe("examples", () => {
     });
 
     // Scenario 7 - Validate product card amount
-    it.only('Validate product card amount', ()=>{
+    it('Validate product card amount', ()=>{
     // Validate that the default amount of cards is 12
     SearchPage.gridList.should('have.length', 12);
     // Change items per page (at the bottom of page) to 24
@@ -178,30 +183,56 @@ describe("examples", () => {
     })
 
     // Scenario 8 - Buy Girlie T-shirt
-    it.only('', () =>{
-  // Click on search icon
-  // Search for Girlie
-  // Add to basket "Girlie"
-  // Click on "Your Basket" button
-  // Create page object - BasketPage
-  // Click on "Checkout" button
-  // Create page object - SelectAddressPage
-  // Select address containing "United Fakedom"
-  // Click Continue button
-  // Create page object - DeliveryMethodPage
-  // Select delivery speed Standard Delivery
-  // Click Continue button
-  // Create page object - PaymentOptionsPage
-  // Select card that ends with "5678"
-  // Click Continue button
-  // Create page object - OrderSummaryPage
-  // Click on "Place your order and pay"
-  // Create page object - OrderCompletionPage
-  // Validate confirmation - "Thank you for your purchase!"
-
-
+    it('Buy Girlie T-Shirt', () =>{
+    // Click on search icon
+    SearchPage.searchIcon.click();
+    // Search for Girlie
+    SearchPage.searchForm.type('Girlie{enter}');
+    // Add to basket "Girlie"
+      SearchPage.addToCart.click();
+    // Click on "Your Basket" button
+      SearchPage.cartIcon.click();
+    // Create page object - BasketPage
+    // Click on "Checkout" button
+      BasePage.checkoutBtn.click();
+    // Create page object - SelectAddressPage
+    // Select address containing "United Fakedom"
+      SelectAddressPage.radioBtn.click();
+    // Click Continue button
+      SelectAddressPage.nextPageBtn.click();
+    // Create page object - DeliveryMethodPage
+    // Select delivery speed Standard Delivery
+      DeliveryMethodPage.standardDelivery.click();
+    // Click Continue button
+      BasePage.nxtBtn.click();
+    // Create page object - PaymentOptionsPage
+    // Select card that ends with "5678"
+      PaymentOptionsPage.clickRadioButton(5678);
+    // Click Continue button
+      BasePage.nxtBtn.click();
+    // Create page object - OrderSummaryPage
+    // Click on "Place your order and pay"
+      BasePage.checkoutBtn.click();
+    // Create page object - OrderCompletionPage
+    // Validate confirmation - "Thank you for your purchase!"
+      OrderCompletionPage.confirmMsg.should('have.text',"Thank you for your purchase!")
     })
+
+    //Scenario - Add address
+    it.only('Add address')
+  // Click on Account
+  // Click on Orders & Payment
+  // Click on My saved addresses
+  // Create page object - SavedAddressesPage
+  // Click on Add New Address
+  // Create page object - CreateAddressPage
+  // Fill in the necessary information
+  // Click Submit button
+  // Validate that previously added address is visible
+
+
     
+
   
 
 

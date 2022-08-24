@@ -45,6 +45,16 @@ class SearchPage extends BasePage {
     static get itemOptions () {
         return cy.get('mat-option.mat-option')
     }
+
+    static get addToCart(){
+        return cy.get('[aria-label="Add to Basket"]')
+    }
+
+    static get cartIcon(){
+        return cy.get('[routerlink="/basket"]')
+    }
+
+
 }
 
 export default SearchPage
