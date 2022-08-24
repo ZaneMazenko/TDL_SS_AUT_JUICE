@@ -21,7 +21,7 @@ describe("examples", () => {
       // Click Account button
       BasePage.accountButton.click();
        // Click Login button
-       LoginPage.loginBtn.click();
+      FirstPage.navigLogInButton.click();
       // Set email value to "demo"
       LoginPage.emailForm.click();
       LoginPage.emailForm.type('demo');
@@ -37,7 +37,7 @@ describe("examples", () => {
     })
 
     // Scenario - Registration
-    it.only('Scenario 2 - Registration', () => {
+    it('Scenario 2 - Registration', () => {
     // Click Account button
     BasePage.accountButton.click();
     // Login button
