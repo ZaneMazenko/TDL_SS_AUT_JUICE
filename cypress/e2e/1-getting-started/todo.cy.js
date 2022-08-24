@@ -143,7 +143,7 @@ describe("examples", () => {
     });
 
     // Scenario 6 - Add a review
-    it.only('Add a review', () => {
+    it('Add a review', () => {
     // Click on search icon
     SearchPage.searchIcon.click();
     // Search for Raspberry
@@ -161,6 +161,46 @@ describe("examples", () => {
     SearchPage.reviewList.contains('Tastes like metal')
     });
 
+    // Scenario 7 - Validate product card amount
+    it.only('Validate product card amount', ()=>{
+    // Validate that the default amount of cards is 12
+    SearchPage.gridList.should('have.length', 12);
+    // Change items per page (at the bottom of page) to 24
+    SearchPage.itemsInPageSlct.click();
+    SearchPage.itemOptions.contains(24).click();
+    // Validate that the amount of cards is 24
+    SearchPage.gridList.should('have.length', 24);
+    // Change items per page (at the bottom of page) to 36
+    SearchPage.itemsInPageSlct.click();
+    SearchPage.itemOptions.contains(36).click();
+    // Validate that the amount of cards is 35
+    SearchPage.gridList.should('have.length', 35);
+    })
+
+    // Scenario 8 - Buy Girlie T-shirt
+    it.only('', () =>{
+  // Click on search icon
+  // Search for Girlie
+  // Add to basket "Girlie"
+  // Click on "Your Basket" button
+  // Create page object - BasketPage
+  // Click on "Checkout" button
+  // Create page object - SelectAddressPage
+  // Select address containing "United Fakedom"
+  // Click Continue button
+  // Create page object - DeliveryMethodPage
+  // Select delivery speed Standard Delivery
+  // Click Continue button
+  // Create page object - PaymentOptionsPage
+  // Select card that ends with "5678"
+  // Click Continue button
+  // Create page object - OrderSummaryPage
+  // Click on "Place your order and pay"
+  // Create page object - OrderCompletionPage
+  // Validate confirmation - "Thank you for your purchase!"
+
+
+    })
     
   
 

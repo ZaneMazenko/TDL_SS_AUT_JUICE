@@ -37,6 +37,14 @@ class SearchPage extends BasePage {
     static get reviewList(){
         return cy.get(':nth-child(1) > [fxlayout="row"]');
     }
+
+    static get itemsInPageSlct(){
+        return cy.get("[role='combobox']");
+    }
+
+    static get itemOptions () {
+        return cy.get('mat-option.mat-option')
+    }
 }
 
 export default SearchPage
