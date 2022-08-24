@@ -9,6 +9,7 @@ import OrderCompletionPage from "../pageObjects/orderCompletionPage";
 import PaymentOptionsPage from "../pageObjects/paymentOptionsPage";
 import RegisterPage from "../pageObjects/registerPage";
 import SavedAddressesPage from "../pageObjects/savedAddressesPage";
+import SavedPaymentMethodsPage from "../pageObjects/savedPaymentMethodsPage";
 import SearchPage from "../pageObjects/searchPage";
 import SelectAddressPage from "../pageObjects/selectAddressPage";
 
@@ -221,7 +222,7 @@ describe("examples", () => {
     })
 
     //Scenario 9 - Add address
-    it.only('Add address', ()=> {
+    it('Add address', ()=> {
       // Click on Account
       BasePage.accountButton.click();
       // Click on Orders & Payment
@@ -251,7 +252,26 @@ describe("examples", () => {
       SavedAddressesPage.checkAddress.contains('NameName');
     })
   
-  
+    //Scenario 10 - Add payment option  
+  it.only('Add payment option', ()=>{
+    // Click on Account
+    BasePage.accountButton.click();
+    // Click on Orders & Payment
+    SearchPage.ordersAndPayments.click();
+    // Click on My payment options
+    SavedAddressesPage.addPayment.click();
+    // Create page object - SavedPaymentMethodsPage
+    // Click Add new card
+    SavedPaymentMethodsPage.addNewCard.click();
+    // Fill in Name
+    // Fill in Card Number
+    // Set expiry month to 7
+    // Set expiry year to 2090
+    // Click Submit button
+    // Validate that the card shows up in the list
+  })
+
+
 
     
 
