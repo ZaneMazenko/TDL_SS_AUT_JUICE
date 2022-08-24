@@ -79,7 +79,43 @@ describe("examples", () => {
     SearchPage.verifyAccount.contains(email);
     })
   })
+
+  context('Juice shop functionality', () => {
+    beforeEach(() => {
+      FirstPage.visit();
+      FirstPage.dismissPopup.click();
+      FirstPage.acceptCookies.click();
+      BasePage.forceReloadBtn.click();
+      BasePage.accountButton.click();
+      FirstPage.navigLogInButton.click();
+      LoginPage.emailForm.click();
+      LoginPage.emailForm.type('demo');
+      LoginPage.passwordForm.click();
+      LoginPage.passwordForm.type('demo');
+      LoginPage.loginBtn.click();
+    });
+
+    // Scenario 3 - Search and validate Lemon
+    it.only('search and validate Lemon', ()=>{
+    // Click on search icon
+    SearchPage.searchIcon.click();
+    // Search for Lemon
+    SearchPage.searchForm.type('Lemon{enter}');
+    // Select a product card - Lemon Juice (500ml)
+    SearchPage.gridList.contains('Lemon Juice (500ml)').click();
+    // Validate that the card (should) contains "Sour but full of vitamins."
+    SearchPage.description.should('contain.text','Sour but full of vitamins')
+    });
+
+
+    it.only()
+
+
+
+
 })
+})
+  
 
 
     
