@@ -21,7 +21,7 @@ describe("examples", () => {
       // Click Account button
       BasePage.accountButton.click();
        // Click Login button
-      
+       LoginPage.loginBtn.click();
       // Set email value to "demo"
       LoginPage.emailForm.click();
       LoginPage.emailForm.type('demo');
